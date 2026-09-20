@@ -21,6 +21,10 @@ async function Main() {
       <img src="${AssetsBase}/thumbnails/${GameData.id}?v=${GameData.thumbnail_version}" alt="${GameData.name}">
       <div class="GameCardContent">
         <h3>${GameData.name}</h3>
+        <div class="GameCardStats">
+          <i class="fa-solid fa-users"></i>
+          <span>${GameData.player_count}</span>
+        </div>
       </div>
     `;
 

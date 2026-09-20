@@ -91,6 +91,7 @@ body {
 
 .GameCardContent {
   padding: 12px;
+  padding-bottom: 8px;
 }
 
 .GameCardContent h3 {
@@ -102,4 +103,9 @@ body {
   margin: 4px 0 0;
   color: #9999a5;
   font-size: 0.9rem;
+}
+
+.GameCardStats {
+  font-size: 0.85rem;
+  color: #8a8a9c;
 }
