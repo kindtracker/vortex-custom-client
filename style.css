@@ -20,7 +20,7 @@ body {
 .NavBarAction {
   display: flex;
   align-items: center;
-  margin-bottom: 4px;
+  margin-bottom: 10px;
   gap: 8px;
 }
 
@@ -62,8 +62,8 @@ body {
 
 .GameGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 32px;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 24px;
 }
 
 .GameCard {
@@ -108,4 +108,74 @@ body {
 .GameCardStats {
   font-size: 0.85rem;
   color: #8a8a9c;
+}
+
+.LoginPage {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.LoginBox {
+  width: 360px;
+  padding: 32px;
+  background-color: #12121e;
+  border: 1px solid #24242f;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+
+.LoginLogo {
+  display: block;
+  width: 100px;
+  margin: 0 auto 24px;
+}
+
+.LoginBox h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.LoginBox p {
+  margin: 8px 0 24px;
+  color: #9999a5;
+}
+
+.LoginBox label {
+  display: block;
+  margin: 12px 0 6px;
+  font-size: 0.9rem;
+}
+
+.LoginBox input {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #15151f;
+  color: #e5e5ea;
+  border: 1px solid #2c2c3a;
+  border-radius: 2px;
+}
+
+.LoginBox button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #7c3aed;
+  color: white;
+  border: 0;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.LoginBox button:hover {
+  background-color: #5d25d0;
+}
+
+.LoginBox > a {
+  display: block;
+  margin-top: 16px;
+  text-align: center;
+  color: #aaa;
 }

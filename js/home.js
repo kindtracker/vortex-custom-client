@@ -10,7 +10,6 @@ async function GetContentFromAPI(Url) {
 
 async function Main() {
   const GamesData = await GetContentFromAPI(APIGames);
-  console.log(GamesData);
 
   const GameGrid = document.querySelector(".GameGrid");
   for (const GameData of GamesData) {
