@@ -18,18 +18,25 @@ body {
 }
 
 .NavBarAction {
+  display: flex;
+  align-items: center;
   margin-bottom: 4px;
+  gap: 8px;
 }
 
 .NavBarAction a {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 8px;
   padding: 0.4rem 0.6rem;
   color: #e5e5ea;
+  width: 180px;
   text-decoration: none;
-  border-radius: 6px;
   font-weight: 600;
   font-size: 1.5vw;
   font-family: 'Figtree', system-ui, -apple-system, sans-serif;
+  border-radius: 2px;
+  border: 1px solid #3c4045;
 }
 
 .NavBarAction a:hover {
