@@ -35,7 +35,21 @@ async function Main() {
   const FriendsAvatar = await window.FetchAvatars(
     FriendsData.map((FriendData) => FriendData.id)
   );
+  const FriendCount = document.querySelector("#FriendCount");
   const FriendsRow = document.querySelector(".FriendsRow");
+
+  const ColorTable = {
+    "in_studio": "#a78bfa",
+    "offline": "6b6b7c",
+    "online": "2563eb",
+    "playing": "16a34a"
+  };
+  const StatusTable = {
+    "in_studio": "In Studio",
+    "offline": "Offline",
+    "online": "Online",
+    "playing": "Playing"
+  };
 
   for (const FriendData of FriendsData.slice(0, 6)) {
     const Card = document.createElement("div");
@@ -45,12 +59,13 @@ async function Main() {
       <img class="FriendImage" src="${FriendsAvatar.get(String(FriendData.id))}" alt="Friend">
       <div class="FriendCardContent">
         <span class="FriendCardName">${FriendData.username}</span>
-        <span class="FriendCardStatus">${FriendData.online_status}</span>
+        <span class="FriendCardStatus" style="color: ${ColorTable[FriendData.online_status]}">${StatusTable[FriendData.online_status]}</span>
       </div>
     `;
 
     FriendsRow.appendChild(Card);
   }
+  FriendCount.innerHTML = `Friends (${FriendsData.length})`;
 
   const GamesData = await GetContentFromAPI(APIGames);
   const GameGrid = document.querySelector(".GameGrid");

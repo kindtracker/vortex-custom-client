@@ -233,11 +233,11 @@ body {
   flex: 0 0 80px;
   width: 80px;
   height: 120px;
-  border: 2px solid #24242f00;
+  border: 2px solid #00000000;
   overflow: hidden;
   cursor: pointer;
   transition: border-color 0.15s, transform 0.15s;
-  margin-top: 3px;
+  margin-top: 8px;
 }
 
 .FriendCard:hover {
@@ -279,4 +279,17 @@ body {
   display: flex;
   gap: 12px;
   overflow-x: auto;
+  margin-left: -12px;
+}
+
+#HomeGreeting {
+  color: #fafafa;
+  font-weight: 700;
+  font-size: 1.75rem;
+  margin-bottom: 24px;
+}
+
+#FriendCount {
+  color: #8a8a9c;
+  font-size: 0.9rem;
 }
