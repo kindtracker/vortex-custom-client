@@ -41,3 +41,12 @@ body {
   margin-left: 220px;
   padding: 2rem;
 }
+
+.Logo {
+  position: relative;
+  left: 35px;
+  width: 100px;
+  height: auto;
+  z-index: 1;
+  margin-bottom: 20px;
+}
