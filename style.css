@@ -62,8 +62,9 @@ body {
 
 .GameGrid {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(5, 0.15fr);
   gap: 24px;
+  margin-left: 18%;
 }
 
 .GameCard {
