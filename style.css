@@ -47,8 +47,9 @@ body {
 }
 
 .Page {
-  margin-left: 220px;
   padding: 2rem;
+  margin-left: calc(220px + 18%);
+  margin-top: 40px;
 }
 
 .Logo {
@@ -64,7 +65,6 @@ body {
   display: grid;
   grid-template-columns: repeat(5, 0.15fr);
   gap: 24px;
-  margin-left: 18%;
 }
 
 .GameCard {
@@ -183,7 +183,6 @@ body {
 
 .HomeIntro {
   display: flex;
-  padding: 48px;
   margin-bottom: 32px;
 }
 
@@ -195,10 +194,10 @@ body {
 
 .HomeIntroContent span {
   display: block;
-  margin-top: 18px;
-  font-size: 1rem;
+  margin-top: 4px;
+  font-size: 0.75rem;
   font-weight: 600;
-  color: #9999a5;
+  color: #e5e5ea;
 }
 
 .HomeIntro h1 {
@@ -228,4 +227,56 @@ body {
 
 .HomeIntroActions a:hover {
   background-color: #5d25d0;
+}
+
+.FriendCard {
+  flex: 0 0 80px;
+  width: 80px;
+  height: 120px;
+  border: 2px solid #24242f00;
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color 0.15s, transform 0.15s;
+  margin-top: 3px;
+}
+
+.FriendCard:hover {
+  border-color: #8e4cbaff;
+  transform: translateY(-2px);
+}
+
+.FriendCard img {
+  display: block;
+  width: calc(100% - 16px);
+  aspect-ratio: 1;
+  object-fit: cover;
+  margin: 8px;
+  border-radius: 2px;
+}
+
+.FriendCardContent {
+  margin-left: 2px;
+  margin-top: 0px;
+}
+
+.FriendCardName {
+  display: block;
+  font-size: 0.2rem;
+  font-weight: 600;
+  color: #e5e5ea;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.FriendCardStatus {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.75rem;
+  color: #8a8a9c;
+}
+
+.FriendsRow {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
 }

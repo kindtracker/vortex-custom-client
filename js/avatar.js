@@ -141,28 +141,29 @@ const HeadBlendShader = (Shader) => {
 export function createViewer(
   Canvas,
   {
-    width = 210,
-    height = 266,
-    rotateToggle = null,
-    interactive = true,
-    transparent = false,
-    facingOffsetDeg = 0
+    Width = 210,
+    Height = 266,
+    RotateToggle = null,
+    Interactive = true,
+    Transparent = false,
+    AutoRotate = true,
+    FacingOffsetDeg = 0
   } = {}
 ) {
-  Canvas.width = width;
-  Canvas.height = height;
+  Canvas.Width = Width;
+  Canvas.Height = Height;
 
   const Renderer = new THREE.WebGLRenderer({
     canvas: Canvas,
     antialias: true,
-    alpha: transparent
+    alpha: Transparent
   });
 
-  Renderer.setSize(width, height, false);
+  Renderer.setSize(Width, Height, false);
   Renderer.outputColorSpace = THREE.SRGBColorSpace;
 
   const Scene = new THREE.Scene();
-  Scene.background = transparent
+  Scene.background = Transparent
     ? null
     : new THREE.Color(0xf4f4f4);
 
@@ -178,7 +179,7 @@ export function createViewer(
 
   const Camera = new THREE.PerspectiveCamera(
     32,
-    width / height,
+    Width / Height,
     0.01,
     100
   );
@@ -187,16 +188,16 @@ export function createViewer(
 
   Controls.enablePan = false;
   Controls.enableZoom = false;
-  Controls.enableRotate = interactive;
-  Controls.autoRotate = interactive;
+  Controls.enableRotate = Interactive;
+  Controls.autoRotate = AutoRotate;
   Controls.autoRotateSpeed = 1.5;
-  Controls.enabled = interactive;
+  Controls.enabled = Interactive;
 
   const BaseYaw =
-    Math.PI + THREE.MathUtils.degToRad(facingOffsetDeg);
+    Math.PI + THREE.MathUtils.degToRad(FacingOffsetDeg);
 
-  if (rotateToggle) {
-    const Icon = rotateToggle.querySelector('i');
+  if (RotateToggle) {
+    const Icon = RotateToggle.querySelector('i');
 
     const SyncIcon = () => {
       if (!Icon) {
@@ -216,7 +217,7 @@ export function createViewer(
 
     SyncIcon();
 
-    rotateToggle.addEventListener('click', () => {
+    RotateToggle.addEventListener('click', () => {
       Controls.autoRotate = !Controls.autoRotate;
       SyncIcon();
     });
@@ -293,7 +294,7 @@ export function createViewer(
           PANT_MATS.has(Material.name)
         ) {
           Material.vertexColors = false;
-          Material.transparent = false;
+          Material.Transparent = false;
           Material.onBeforeCompile = BlendShader;
 
           if (SHIRT_MATS.has(Material.name)) {
@@ -303,7 +304,7 @@ export function createViewer(
           }
         } else if (Material.name === 'Material.002') {
           Material.vertexColors = true;
-          Material.transparent = false;
+          Material.Transparent = false;
           Material.onBeforeCompile = HeadBlendShader;
           HeadMaterials.push(Material);
         } else {
@@ -409,7 +410,7 @@ export function createViewer(
 
       CameraReady = true;
 
-      if (interactive) {
+      if (Interactive) {
         function Animate() {
           requestAnimationFrame(Animate);
           Controls.update();
@@ -462,7 +463,7 @@ export function createViewer(
 
     if (Missing.length) {
       const PromiseValue = fetch(
-        `/api/meshes?ids=${Missing.join(',')}`
+        `/proxy/api/meshes?ids=${Missing.join(',')}`
       )
         .then((Response) => Response.json())
         .then((Data) =>

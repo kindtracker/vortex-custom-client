@@ -4,6 +4,7 @@ const Proxy = "/proxy";
 const APIBase = Proxy + "/api";
 const APIGames = APIBase + "/games";
 const APICatalog = APIBase + "/catalog/init";
+const APIFriends = APIBase + "/friends";
 const APIMe = Proxy + "/me";
 const AssetsBase = Proxy + "/assets";
 
@@ -19,16 +20,37 @@ async function Main() {
   const HomeGreeting = document.querySelector("#HomeGreeting");
   HomeGreeting.innerHTML = `Hello, ${MeData.username}`;
 
-  const CatalogData = await GetContentFromAPI(APICatalog, {
-    width: 170,
-    height: 220,
-    interactive: false,
-    transparent: true,
-    facingOffsetDeg: 25,
+  const CatalogData = await GetContentFromAPI(APICatalog);
+  const Viewer = createViewer(document.getElementById("AvatarViewer"), {
+    Width: 170,
+    Height: 220,
+    Interactive: true,
+    Transparent: true,
+    AutoRotate: false,
+    FacingOffsetDeg: 25
   });
-
-  const Viewer = createViewer(document.getElementById("AvatarViewer"));
   Viewer.LoadOutfit(CatalogData);
+
+  const FriendsData = await GetContentFromAPI(APIFriends);
+  const FriendsAvatar = await window.FetchAvatars(
+    FriendsData.map((FriendData) => FriendData.id)
+  );
+  const FriendsRow = document.querySelector(".FriendsRow");
+
+  for (const FriendData of FriendsData.slice(0, 6)) {
+    const Card = document.createElement("div");
+    Card.className = "FriendCard";
+
+    Card.innerHTML = `
+      <img class="FriendImage" src="${FriendsAvatar.get(String(FriendData.id))}" alt="Friend">
+      <div class="FriendCardContent">
+        <span class="FriendCardName">${FriendData.username}</span>
+        <span class="FriendCardStatus">${FriendData.online_status}</span>
+      </div>
+    `;
+
+    FriendsRow.appendChild(Card);
+  }
 
   const GamesData = await GetContentFromAPI(APIGames);
   const GameGrid = document.querySelector(".GameGrid");
