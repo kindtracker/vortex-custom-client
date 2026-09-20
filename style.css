@@ -179,3 +179,41 @@ body {
   text-align: center;
   color: #aaa;
 }
+
+.HomeIntro {
+  padding: 48px;
+  margin-bottom: 32px;
+}
+
+.HomeIntroContent {
+  max-width: 700px;
+}
+
+.HomeIntro h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+.HomeIntro p {
+  margin: 12px 0 24px;
+  color: #9999a5;
+  font-size: 1.1rem;
+}
+
+.HomeIntroActions {
+  display: flex;
+  gap: 12px;
+}
+
+.HomeIntroActions a {
+  padding: 10px 16px;
+  background-color: #4e1cba;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 2px;
+  font-weight: 600;
+}
+
+.HomeIntroActions a:hover {
+  background-color: #5d25d0;
+}

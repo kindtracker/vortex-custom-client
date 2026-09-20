@@ -1,6 +1,11 @@
-const APIBase = "/proxy/api";
+import { createViewer } from "/js/avatar.js";
+
+const Proxy = "/proxy";
+const APIBase = Proxy + "/api";
 const APIGames = APIBase + "/games";
-const AssetsBase = "/proxy/assets";
+const APICatalog = APIBase + "/catalog/init";
+const APIMe = Proxy + "/me";
+const AssetsBase = Proxy + "/assets";
 
 async function GetContentFromAPI(Url) {
   const Response = await fetch(Url);
@@ -9,9 +14,26 @@ async function GetContentFromAPI(Url) {
 }
 
 async function Main() {
-  const GamesData = await GetContentFromAPI(APIGames);
+  const MeData = await GetContentFromAPI(APIMe);
 
+  const HomeGreeting = document.querySelector("#HomeGreeting");
+  HomeGreeting.innerHTML = `Hello, ${MeData.username}`;
+
+  const CatalogData = await GetContentFromAPI(APICatalog, {
+    width: 170,
+    height: 220,
+    interactive: false,
+    transparent: true,
+    facingOffsetDeg: 25,
+  });
+  console.log(CatalogData);
+
+  const Viewer = createViewer(document.getElementById("AvatarViewer"));
+  Viewer.LoadOutfit(CatalogData);
+
+  const GamesData = await GetContentFromAPI(APIGames);
   const GameGrid = document.querySelector(".GameGrid");
+
   for (const GameData of GamesData) {
     const Card = document.createElement("div");
     Card.className = "GameCard";
