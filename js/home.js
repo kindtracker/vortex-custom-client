@@ -1,6 +1,6 @@
-const APIBase = "https://corsproxy.io/?key=webdemo1&url=https://playvortex.io/api";
+const APIBase = "/proxy/api";
 const APIGames = APIBase + "/games";
-const AssetsBase = "https://playvortex.io/assets";
+const AssetsBase = "/proxy/assets";
 
 async function GetContentFromAPI(Url) {
   const Response = await fetch(Url);
