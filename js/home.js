@@ -26,7 +26,6 @@ async function Main() {
     transparent: true,
     facingOffsetDeg: 25,
   });
-  console.log(CatalogData);
 
   const Viewer = createViewer(document.getElementById("AvatarViewer"));
   Viewer.LoadOutfit(CatalogData);
