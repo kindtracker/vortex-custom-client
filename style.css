@@ -317,3 +317,9 @@ body {
   border-radius: 2px;
   cursor: pointer;
 }
+
+canvas {
+  height: 220px;
+  position: relative;
+  top: 30px;
+}
