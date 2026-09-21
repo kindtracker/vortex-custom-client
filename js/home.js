@@ -104,6 +104,9 @@ async function Main() {
       behavior: "smooth"
     });
   });
+
+  const NavBarMe = document.querySelector("#NavBarMe");
+  NavBarMe.href = `/profile.html?id=${MeData.id}`;
 }
 
 Main();
