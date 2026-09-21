@@ -241,6 +241,7 @@ body {
   cursor: pointer;
   transition: border-color 0.15s, transform 0.15s;
   margin-top: 8px;
+  margin-bottom: 16px;
 }
 
 .FriendCard:hover {
@@ -300,4 +301,19 @@ body {
 
 .GameSection {
   color: #8a8a9c;
+}
+
+.HomeActions {
+  display: flex;
+  gap: 8px;
+  height: 28px;
+}
+
+.HomeActions button {
+  margin-top: 4px;
+  background-color: #171020;
+  color: #9a9aab;
+  border: 2px solid #24242f;
+  border-radius: 2px;
+  cursor: pointer;
 }

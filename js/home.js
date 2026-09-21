@@ -87,6 +87,23 @@ async function Main() {
 
     GameGrid.appendChild(Card);
   }
+
+  const FriendPrevious = document.querySelector("#FriendPrevious");
+  const FriendNext = document.querySelector("#FriendNext");
+
+  FriendPrevious.addEventListener("click", () => {
+    FriendsRow.scrollBy({
+      left: -(window.innerWidth - 570),
+      behavior: "smooth"
+    });
+  });
+
+  FriendNext.addEventListener("click", () => {
+    FriendsRow.scrollBy({
+      left: window.innerWidth - 570,
+      behavior: "smooth"
+    });
+  });
 }
 
 Main();
