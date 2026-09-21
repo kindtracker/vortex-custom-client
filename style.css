@@ -323,3 +323,9 @@ canvas {
   position: relative;
   top: 30px;
 }
+
+.FriendCard,
+.GameCard {
+  text-decoration: none;
+  color: inherit;
+}

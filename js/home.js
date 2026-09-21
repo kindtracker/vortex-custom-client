@@ -52,8 +52,9 @@ async function Main() {
   };
 
   for (const FriendData of FriendsData) {
-    const Card = document.createElement("div");
+    const Card = document.createElement("a");
     Card.className = "FriendCard";
+    Card.href = `/profile.html?id=${FriendData.id}`;
 
     Card.innerHTML = `
       <img class="FriendImage" src="${FriendsAvatar.get(String(FriendData.id))}" alt="Friend">
@@ -70,9 +71,11 @@ async function Main() {
   const GamesData = await GetContentFromAPI(APIGames);
   const GameGrid = document.querySelector(".GameGrid");
 
+  GamesData.sort((A, B) => B.player_count - A.player_count);
   for (const GameData of GamesData) {
-    const Card = document.createElement("div");
+    const Card = document.createElement("a");
     Card.className = "GameCard";
+    Card.href = `/game.html?id=${GameData.id}`;
 
     Card.innerHTML = `
       <img src="${AssetsBase}/thumbnails/${GameData.id}?v=${GameData.thumbnail_version}" alt="${GameData.name}">
