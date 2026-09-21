@@ -51,7 +51,7 @@ async function Main() {
     "playing": "Playing"
   };
 
-  for (const FriendData of FriendsData.slice(0, 6)) {
+  for (const FriendData of FriendsData) {
     const Card = document.createElement("div");
     Card.className = "FriendCard";
 

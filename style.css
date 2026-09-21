@@ -34,7 +34,7 @@ body {
   text-decoration: none;
   font-weight: 600;
   font-size: 1.5vw;
-  border: #00000000;
+  border: 2px solid transparent;
   border-radius: 2px;
   transition: border 0.2s, transform 0.2s;
 }
@@ -46,12 +46,14 @@ body {
 
 .NavBarAction a.Active {
   background-color: #4e1cba;
+  color: #ffffff;
 }
 
 .Page {
   padding: 2rem;
-  margin-left: calc(220px + 18%);
+  margin-left: calc(270px + 2rem);
   margin-top: 40px;
+  box-sizing: border-box;
 }
 
 .Logo {
@@ -65,12 +67,11 @@ body {
 
 .GameGrid {
   display: grid;
-  grid-template-columns: repeat(5, 0.15fr);
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 24px;
 }
 
 .GameCard {
-  background-color: #12121c;
   border: 1px solid #24242f;
   border-radius: 2px;
   overflow: hidden;
@@ -282,6 +283,7 @@ body {
   gap: 12px;
   overflow-x: auto;
   margin-left: -12px;
+  width: calc(100vw - 570px);
 }
 
 #HomeGreeting {
@@ -294,4 +296,8 @@ body {
 #FriendCount {
   color: #8a8a9c;
   font-size: 0.9rem;
+}
+
+.GameSection {
+  color: #8a8a9c;
 }
